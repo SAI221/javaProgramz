@@ -1,127 +1,125 @@
 package com.bridgelabz.javaprgms.util;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class AlgorithmsUtil {
 
-	
 	public static Scanner scan = new Scanner(System.in);
 
 	public static int integer() {
-			int n = scan.nextInt();
-			return n;
-		}
+		int n = scan.nextInt();
+		return n;
+	}
 
 	public static String string() {
-			String s = scan.next();
-			return s;
-		}
+		String s = scan.next();
+		return s;
+	}
 
 	public static String string1() {
-		String s1=scan.nextLine();
+		String s1 = scan.nextLine();
 		return s1;
 	}
 
-
 	public static double idouble() {
-			double d = scan.nextDouble();
-			return d;
-		}
+		double d = scan.nextDouble();
+		return d;
+	}
 
 	public static float ifloat() {
-			float f = scan.nextFloat();
-			return f;
-		}
+		float f = scan.nextFloat();
+		return f;
+	}
 
 	public static long llong() {
-			long l = scan.nextLong();
-			return l;
-		}
+		long l = scan.nextLong();
+		return l;
+	}
 
 	public static File getFile() {
-			File file = new File(scan.nextLine());
-			return file;
-		}
+		File file = new File(scan.nextLine());
+		return file;
+	}
 
 	// INPUT AN ARRAY
 	public static int[] arr() {
-			System.out.println("enter no. elements");
-			int n = AlgorithmsUtil.integer();
-			System.out.println("enter elements");
-			int[] arr = new int[n];
-			for (int i = 0; i < n; i++) {
-				arr[i] = AlgorithmsUtil.integer();
+		System.out.println("enter no. elements");
+		int n = AlgorithmsUtil.integer();
+		System.out.println("enter elements");
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = AlgorithmsUtil.integer();
 
-			}
-			for (int e : arr) {
-				System.out.print(e + " ");
-			}
-			System.out.println();
-			return arr;
 		}
+		for (int e : arr) {
+			System.out.print(e + " ");
+		}
+		System.out.println();
+		return arr;
+	}
 
 	// STRING ARRAY
 	public static String[] strArray(int n) {
-			String[] strArray = new String[n];
-			System.out.println("enter elements");
-			for (int i = 0; i < n; i++) {
-				strArray[i] = AlgorithmsUtil.string();
-			}
-			return strArray;
+		String[] strArray = new String[n];
+		System.out.println("enter elements");
+		for (int i = 0; i < n; i++) {
+			strArray[i] = AlgorithmsUtil.string();
 		}
+		return strArray;
+	}
 
 	// INTEGER ARRAY
 	public static Integer[] intArray1(int n) {
-			Integer[] array = new Integer[n];
-			System.out.println("enter elements");
-			for (int i = 0; i < n; i++) {
-				array[i] = AlgorithmsUtil.integer();
-			}
-			return array;
+		Integer[] array = new Integer[n];
+		System.out.println("enter elements");
+		for (int i = 0; i < n; i++) {
+			array[i] = AlgorithmsUtil.integer();
 		}
+		return array;
+	}
 
 	// ANAGRAM
 	public static boolean anagram(String s1, String s2) {
-			char[] firstArray = s1.toCharArray();
-			// char[] firstArray=removeSpaces(c1);
-			char[] secondArray = s2.toCharArray();
-			// char[] secondArray=removeSpaces(c2);
-			Arrays.sort(firstArray);
-			Arrays.sort(secondArray);
-			if (firstArray.length != secondArray.length)
-				return false;
-			for (int i = 0; i < firstArray.length; i++)
-				if (firstArray[i] == secondArray[i])
-					return true;
+		char[] firstArray = s1.toCharArray();
+		// char[] firstArray=removeSpaces(c1);
+		char[] secondArray = s2.toCharArray();
+		// char[] secondArray=removeSpaces(c2);
+		Arrays.sort(firstArray);
+		Arrays.sort(secondArray);
+		if (firstArray.length != secondArray.length)
 			return false;
+		for (int i = 0; i < firstArray.length; i++)
+			if (firstArray[i] == secondArray[i])
+				return true;
+		return false;
 
-		}
+	}
 
 	// PRIME NUMBERS
 
 	public static ArrayList<Integer> primeNum() {
-			ArrayList<Integer> ar = new ArrayList<Integer>();
-			for (int i = 0; i < 1000; i++) {
-				int c = 0;
-				for (int j = 1; j <= i; j++) {
-					if (i % j == 0) {
-						c = c + 1;
+		ArrayList<Integer> ar = new ArrayList<Integer>();
+		for (int i = 0; i < 1000; i++) {
+			int c = 0;
+			for (int j = 1; j <= i; j++) {
+				if (i % j == 0) {
+					c = c + 1;
 
-					}
 				}
-				if (c == 2)
-
-				{
-					ar.add(i);
-				}
-
 			}
-			return ar;
+			if (c == 2)
+
+			{
+				ar.add(i);
+			}
+
 		}
+		return ar;
+	}
 
 	// CHECKING NUMBERS FOR PALINDROME AND ANAGRAM
 
@@ -154,7 +152,7 @@ public class AlgorithmsUtil {
 				if (AlgorithmsUtil.isAnagram(primenumbers.get(i), primenumbers.get(j))) {
 					anagrams.add(primenumbers.get(i));
 					anagrams.add(primenumbers.get(j));
-					//System.out.println(primenumbers.get(i) + " " + primenumbers.get(j));
+					// System.out.println(primenumbers.get(i) + " " + primenumbers.get(j));
 				}
 			}
 		}
@@ -292,10 +290,10 @@ public class AlgorithmsUtil {
 	// BINARY SEARCH
 
 	public static int binarySearch(String[] s, String word) {
-		int l = s.length-1 ;
+		int l = s.length - 1;
 		int nl = 0;
 		while (nl <= l) {
-			int m = (nl + l )/ 2;
+			int m = (nl + l) / 2;
 			int mid = word.compareTo(s[m]);
 			if (mid == 0)
 				return m;

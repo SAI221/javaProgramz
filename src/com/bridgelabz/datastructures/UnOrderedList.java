@@ -25,7 +25,7 @@ public class UnOrderedList {
 		}
 
 		list.traverse();
-		list.get();//storing again in string array
+		list.get();// storing again in string array
 		System.out.println("Enter the key value: ");
 		String key = AlgorithmsUtil.string();
 

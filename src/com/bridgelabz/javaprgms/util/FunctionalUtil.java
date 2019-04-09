@@ -121,38 +121,33 @@ public class FunctionalUtil {
 
 	}
 
-	//7. GAMBLING****************************************************
+	// 7. GAMBLING****************************************************
 
-	public static void gambling(int mny,int bet,int goal)
-	{
-	int c=0;	
-	int w=0;int l=0;
-	while(mny!=0||mny==goal)
-	{
-		double rs=Math.random();
-		if(rs<=0.5)
-		{
-			mny=mny+bet;
-			w++;
+	public static void gambling(int mny, int bet, int goal) {
+		int c = 0;
+		int w = 0;
+		int l = 0;
+		while (mny != 0 || mny == goal) {
+			double rs = Math.random();
+			if (rs <= 0.5) {
+				mny = mny + bet;
+				w++;
+			} else {
+				mny = mny - bet;
+				l++;
+			}
+			c++;
 		}
-		else
-		{
-			mny=mny-bet;
-			l++;
-		}
-		c++;
+		System.out.println("no. of wins " + w);
+		System.out.println("no. of loss " + l);
+
+		int wp = (w * 100) / c;
+		int lp = (l * 100) / c;
+		System.out.println("win percentage-->" + wp);
+		System.out.println("loss percentage-->" + lp);
 	}
-	System.out.println("no. of wins "+w );
-	System.out.println("no. of loss "+l);
 
-	int wp= (w*100)/c;
-	int lp=(l*100)/c;
-	System.out.println("win percentage-->"+wp);
-	System.out.println("loss percentage-->"+lp);
-		}
-
-
-	//9. ARRAY2D*******************************************************
+	// 9. ARRAY2D*******************************************************
 	public static void array2D(int r, int c, int arr[][]) {
 		PrintWriter pw = new PrintWriter(System.out, true);
 		for (int i = 0; i < r; i++) {
@@ -248,141 +243,136 @@ public class FunctionalUtil {
 		}
 		return diff;
 	}
-	
-	//CROSSGAME
 
-	public static String board[][]=new String[3][3];
-	static String cp="x";
+	// CROSSGAME
+
+	public static String board[][] = new String[3][3];
+	static String cp = "x";
 
 	public static void changeplayer() {
 		// TODO Auto-generated method stub
-	  if (cp == "x") {
-	      cp = "o";
+		if (cp == "x") {
+			cp = "o";
 
-	  }
+		}
 
-	  else {
+		else {
 
-	      cp = "x";
+			cp = "x";
 
-	  }
-
-	}
-	public static boolean isBoardFull(){
-
-			         boolean isFull = true;
-
-
-
-			         for (int i = 0; i < 3; i++) {
-
-			             for (int j = 0; j < 3; j++) {
-
-			                 if (board[i][j] == "-") {
-
-			                     isFull = false;
-
-			                 }
-
-			             }
-
-			         }
-
-
-
-			         return isFull;
-
+		}
 
 	}
-	public static void printBoard()
-	{
-		 System.out.println("-------------");
-	        for (int i = 0; i < 3; i++) {
 
-	            System.out.print("| ");
+	public static boolean isBoardFull() {
 
-	            for (int j = 0; j < 3; j++) {
+		boolean isFull = true;
 
-	                System.out.print(board[i][j] + " | ");
+		for (int i = 0; i < 3; i++) {
 
-	            }
+			for (int j = 0; j < 3; j++) {
 
-	            System.out.println();
+				if (board[i][j] == "-") {
 
-	            System.out.println("-------------");
+					isFull = false;
 
-	        }
+				}
+
+			}
+
+		}
+
+		return isFull;
 
 	}
+
+	public static void printBoard() {
+		System.out.println("-------------");
+		for (int i = 0; i < 3; i++) {
+
+			System.out.print("| ");
+
+			for (int j = 0; j < 3; j++) {
+
+				System.out.print(board[i][j] + " | ");
+
+			}
+
+			System.out.println();
+
+			System.out.println("-------------");
+
+		}
+
+	}
+
 	public static boolean checkForWin() {
-		        return (checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin());
-		    }
+		return (checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin());
+	}
+
 	public static boolean checkRowsForWin() {
 
-	  for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 3; i++) {
 
-	      if (checkRowCol(board[i][0], board[i][1], board[i][2]) == true) {
+			if (checkRowCol(board[i][0], board[i][1], board[i][2]) == true) {
 
-	          return true;
+				return true;
 
-	      }
+			}
 
-	  }
+		}
 
-	  return false;
+		return false;
 	}
+
 	public static boolean checkColumnsForWin() {
 
-		        for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 3; i++) {
 
-		            if (checkRowCol(board[0][i], board[1][i], board[2][i]) == true) {
+			if (checkRowCol(board[0][i], board[1][i], board[2][i]) == true) {
 
-		                return true;
+				return true;
 
-		            }
+			}
 
-		        }
+		}
 
-		        return false;
+		return false;
 
-		    }
+	}
+
 	public static boolean checkDiagonalsForWin() {
 
-		        return ((checkRowCol(board[0][0], board[1][1], board[2][2]) == true) || (checkRowCol(board[0][2], board[1][1], board[2][0]) == true));
+		return ((checkRowCol(board[0][0], board[1][1], board[2][2]) == true)
+				|| (checkRowCol(board[0][2], board[1][1], board[2][0]) == true));
 
-		    }
+	}
+
 	public static boolean checkRowCol(String board2, String board3, String board4) {
 
-		        return ((board2 != "-" && (board2 == board3) && (board3 == board4)));
+		return ((board2 != "-" && (board2 == board3) && (board3 == board4)));
 
-		    }
+	}
+
 	public static boolean placeMark(int i, int j) {
-		        if ((i >= 0) && (i < 3)) {
-		            if ((j >= 0) && (j < 3)) {
-		                if (board[i][j] == "-") {
+		if ((i >= 0) && (i < 3)) {
+			if ((j >= 0) && (j < 3)) {
+				if (board[i][j] == "-") {
 
-		                    board[i][j] = cp;
+					board[i][j] = cp;
 
-		                    return true;
+					return true;
 
-		                }
-		            }
-		        }
-		        return false;
+				}
+			}
+		}
+		return false;
 
-		    }
+	}
 
 	public static long stopWatch(long start, long stop) {
-	long elpaseTime=stop-start;
+		long elpaseTime = stop - start;
 		return elpaseTime;
 	}
-	
 
-
-	}
-
-
-
-
-
-
+}

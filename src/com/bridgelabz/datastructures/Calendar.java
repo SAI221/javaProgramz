@@ -5,8 +5,8 @@ import com.bridgelabz.javaprgms.util.DataStructuresUtil;
 public class Calendar {
 
 	public static void main(String[] args) {
-		int month = Integer.parseInt(args[0]); 
-		int year = Integer.parseInt(args[1]); 
+		int month = Integer.parseInt(args[0]);
+		int year = Integer.parseInt(args[1]);
 
 		String[] months = { "", "January", "February", "March", "April", "May", "June", "July", "August", "September",
 				"October", "November", "December" };
@@ -18,15 +18,14 @@ public class Calendar {
 			days[month] = 29;
 
 		// print calendar header
-		System.out.println( months[month] + " " + year);
+		System.out.println(months[month] + " " + year);
 		System.out.println(" S  M  T  W  Th F  S ");
 
 		// starting day
 		int d = DataStructuresUtil.day(month, 1, year);
 
 		// print the calendar
-		for (int i = 0; i < d; i++)
-		{
+		for (int i = 0; i < d; i++) {
 			System.out.print("   ");
 		}
 		for (int i = 1; i <= days[month]; i++) {
